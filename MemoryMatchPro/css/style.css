@@ -1,0 +1,458 @@
+/* Global resets */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    justify-content: center;
+    align-items: left;
+    overflow: hidden;
+}
+
+/* Wrapper for the content */
+.wrapper {
+    text-align: center;
+    color: white;
+    background: radial-gradient(circle, #5f2b8e 0%, #2c0744 80%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Navigation styling */
+nav {
+    position: absolute;
+    top: 190px;
+    left: 50px;
+}
+
+.container {
+    text-align: left;
+    width: 90%;
+    margin-top: 50px;
+    padding-left: 10px;
+}
+button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    color: #eed565;
+}
+
+/* Title Styling */
+#Title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+#Pro {
+    color: #f1d600; /* Yellow for 'PRO' */
+}
+
+#Edition {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #5f2b8e;
+    letter-spacing: 1px;
+    text-shadow: 5px 0 #2b0d49;
+}
+
+/* Paragraph text styling */
+p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    max-width: 600px;
+    line-height: 1.3;
+}
+
+/* Play button styling */
+.Play {
+    background-color: #7317c9;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-top: 80px;
+}
+
+.Play:hover {
+    background-color: #8e44ad;
+}
+
+/* ===== PLANETS & ASTRONAUT POSITIONING ===== */
+
+.img-purple-planet img {
+    position: absolute;
+    bottom: -150px;
+    right: 70px;
+    width: 590px;
+    z-index: 1;
+    animation: orbit 23s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(152, 65, 215, 0.6));
+}
+
+/* Astronaut (on top of purple planet) */
+.img-astronaut img {
+    position: absolute;
+    bottom: 280px;
+    right: 260px;
+    width: 200px;
+    z-index: 3;
+    animation: floatAstronaut 4s ease-in-out infinite;
+}
+
+/* Pink planet (middle left of purple) */
+.img-pink-planet img {
+    position: absolute;
+    bottom: 150px;
+    right: 560px;
+    width: 190px;
+    z-index: 2;
+    animation: orbit 12s linear infinite;
+    filter: drop-shadow(0 0 30px rgba(255, 80, 120, 0.6));
+}
+
+/* Yellow planet (right side glowing) */
+.img-yellow-planet img {
+    position: absolute;
+    top: 190px;
+    right: 100px;
+    width: 120px;
+    z-index: 2;
+    animation: orbit 18s linear infinite reverse;
+    filter: drop-shadow(0 0 25px rgba(255, 230, 100, 0.8));
+}
+
+/* Blue planet (top right) */
+.img-blue-planet img {
+    position: absolute;
+    top: 80px;
+    right: 250px;
+    width: 90px;
+    z-index: 2;
+    animation: orbit 20s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(100, 150, 255, 0.7));
+}
+
+/* ===== ANIMATIONS ===== */
+
+/* Floating astronaut (up and down) */
+@keyframes floatAstronaut {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Orbit / circular movement */
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(20px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(20px) rotate(-360deg);
+    }
+}
+
+/* Box for animated circles */
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* To ensure animation doesn't block interactions */
+}
+
+/* Styling for the animated circles */
+.box div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 4px solid rgba(255, 255, 255, 0.6); /* Slightly transparent white */
+    border-radius: 50%;
+    animation: animate 10s linear infinite;
+}
+
+.box div:nth-child(1) {
+    top: 12%;
+    left: 42%;
+    animation-duration: 10s;
+}
+.box div:nth-child(2) {
+    top: 70%;
+    left: 50%;
+    animation-duration: 7s;
+}
+.box div:nth-child(3) {
+    top: 17%;
+    left: 6%;
+    animation-duration: 9s;
+}
+.box div:nth-child(4) {
+    top: 20%;
+    left: 60%;
+    animation-duration: 10s;
+}
+.box div:nth-child(5) {
+    top: 67%;
+    left: 10%;
+    animation-duration: 6s;
+}
+.box div:nth-child(6) {
+    top: 80%;
+    left: 70%;
+    animation-duration: 12s;
+}
+.box div:nth-child(7) {
+    top: 60%;
+    left: 80%;
+    animation-duration: 15s;
+}
+.box div:nth-child(8) {
+    top: 32%;
+    left: 25%;
+    animation-duration: 16s;
+}
+.box div:nth-child(9) {
+    top: 90%;
+    left: 25%;
+    animation-duration: 9s;
+}
+.box div:nth-child(10) {
+    top: 20%;
+    left: 80%;
+    animation-duration: 5s;
+}
+
+/* Keyframe animation */
+@keyframes animate {
+    0% {
+        transform: scale(0) translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.3) translateY(-90px) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* ============================= */
+/* ✅ GLOBAL RESPONSIVE SETTINGS */
+/* ============================= */
+
+/* Make text scale nicely */
+html {
+    font-size: clamp(12px, 1.2vw, 18px);
+}
+
+/* Prevent overflow issues */
+.wrapper {
+    overflow: hidden;
+}
+
+/* Make images scale better */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* LARGE SCREENS (DESKTOP) */
+@media (min-width: 1400px) {
+    .img-purple-planet img {
+        width: 650px;
+        right: 100px;
+    }
+
+    .img-astronaut img {
+        width: 220px;
+        right: 300px;
+    }
+}
+
+/* LAPTOP */
+@media (max-width: 1200px) {
+    .img-purple-planet img {
+        width: 500px;
+        right: 40px;
+        bottom: -120px;
+    }
+
+    .img-astronaut img {
+        width: 170px;
+        right: 200px;
+        bottom: 220px;
+    }
+
+    .img-pink-planet img {
+        width: 150px;
+        right: 420px;
+    }
+}
+
+/* TABLET (LANDSCAPE) */
+@media (max-width: 992px) {
+    .container {
+        width: 80%;
+    }
+
+    .img-purple-planet img {
+        width: 420px;
+        right: 0;
+        bottom: -100px;
+    }
+
+    .img-astronaut img {
+        width: 150px;
+        right: 150px;
+        bottom: 200px;
+    }
+
+    .img-pink-planet img {
+        width: 130px;
+        right: 320px;
+    }
+
+    .img-yellow-planet img {
+        width: 100px;
+    }
+
+    .img-blue-planet img {
+        width: 70px;
+    }
+}
+
+/* TABLET (PORTRAIT) */
+@media (max-width: 768px) {
+
+    nav {
+        top: 40px;
+        left: 20px;
+    }
+
+    .container {
+        width: 90%;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    #Title {
+        font-size: 2.2rem;
+    }
+
+    #Edition {
+        font-size: 2.5rem;
+    }
+
+    .Play {
+        margin-top: 40px;
+    }
+
+    /* Planets shrink */
+    .img-purple-planet img {
+        width: 350px;
+        right: -50px;
+        bottom: -120px;
+    }
+
+    .img-astronaut img {
+        width: 130px;
+        right: 120px;
+        bottom: 180px;
+    }
+
+    .img-pink-planet img {
+        width: 110px;
+        right: 260px;
+    }
+
+    .img-yellow-planet img {
+        width: 90px;
+        top: 140px;
+    }
+
+    .img-blue-planet img {
+        width: 60px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        top: 20px;
+        left: 10px;
+    }
+
+    .container {
+        margin-top: 120px;
+    }
+
+    #Title {
+        font-size: 1.8rem;
+    }
+
+    #Edition {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .Play {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    /* Planets much smaller */
+    .img-purple-planet img {
+        width: 260px;
+        right: -80px;
+        bottom: -100px;
+    }
+
+    .img-astronaut img {
+        width: 100px;
+        right: 90px;
+        bottom: 140px;
+    }
+
+    .img-pink-planet img {
+        width: 90px;
+        right: 200px;
+    }
+
+    .img-yellow-planet img {
+        width: 70px;
+        top: 120px;
+        right: 40px;
+    }
+
+    .img-blue-planet img {
+        width: 50px;
+        right: 140px;
+    }
+}
